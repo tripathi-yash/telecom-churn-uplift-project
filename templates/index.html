@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Churn & Uplift Predeictor</title>
+    <link rel="stylesheet" href="../static/style.css">
+
+    <!-- Latest compiled and minified CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+    </style>
+
+</head>
+<body class="light">
+
+    <header>
+        <nav>
+            <ul class="hero-nav ">
+                <li><img src="../static/images/satellite.png" alt="logo"></li>
+                <li><a href="#">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#reviews">Reviews</a></li>
+                <li id="dark-mode"><img id="dark-img" src="../static/images/dark-mode.png" alt="logo"></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <section id="about" class="intro">
+            <div>
+                <h1>Telecom Customer Retention & Uplift Intelligence</h1>
+
+                <p>
+                    Predict customers who are likely to churn and identify those
+                    most responsive to retention offers.
+                </p>
+
+                <p>
+                    Optimize retention campaigns by targeting customers where
+                    intervention can create the highest impact.
+                </p>
+            </div>
+        </section>
+
+        <section>
+            <form id="predict-form">
+                
+                <div class="form-main">
+                    
+                    <div class="form1">
+                        <h3>Customer Information</h3>
+                        <div class="form-row">
+                            <div class="form-label">Gender :</div> 
+                            <div>
+                                <div>
+                                    <input type="radio" id="male" name="gender" value="Male" class="gender" required>
+                                    <label for="male">Male</label>
+                                </div>
+                                <div>
+                                    <input type="radio" id="female" name="gender" value="Female" class="gender" required>
+                                    <label for="female">Female</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-label">Senior Citizen :</div> 
+                            <div>
+                                <div>
+                                    <input type="radio" id="yes-sc" name="Senior Citizen" value="Yes" class="senior_citizen" required>
+                                    <label for="yes-sc">Yes</label>
+                                </div>
+                                <div>
+                                    <input type="radio" id="no-sc" name="Senior Citizen" value="No" class="senior_citizen" required>
+                                    <label for="no-sc">No</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-label">Partner : </div>
+                            <div> 
+                                <div>
+                                    <input type="radio" id="y-p" name="partner" value="Yes" class="partner" required>
+                                    <label for="y-p">Yes</label>
+                                </div>
+                                <div>
+                                    <input type="radio" id="n-p" name="partner" value="No" class="partner" required>
+                                    <label for="n-p">No</label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-label">Dependents : </div>
+                            <div> 
+                                <div>
+                                    <input type="radio" id="y-d" name="dependents" value="Yes"  class="dependents" required>
+                                    <label for="y-d">Yes</label>
+                                </div>
+                                <div>
+                                    <input type="radio" id="n-d" name="dependents" value="No" class="dependents" required>
+                                    <label for="n-d">No</label>
+                                </div>
+                            </div>
+                        </div> 
+                    </div>
+
+                    <div class="form2">
+                        <h3>Telecom Services</h3>
+                        <div class="form-row">
+                            <div class="form-label">Phone Service : </div>
+                            <div>
+                                <div>
+                                    <input type="radio" id="y-ps" name="phone_Service" value="Yes" required>
+                                    <label for="y-ps">Yes</label>
+                                </div>
+                                <div>
+                                    <input type="radio" id="n-ps" name="phone_Service" value="No" required>
+                                    <label for="n-ps">No</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-label">Multiple Lines :</div>
+                            <div>
+                            <select name="multiple_Lines">
+                                <option  value="Yes">Yes</option>
+                                <option value="No" >No</option>
+                                <option value="No phone service" >No phone service</option>
+                            </select>
+                            </div>
+                        </div>
+        
+                        <div class="form-row">
+                            <div class="form-label">Internet Service : </div>
+                            <div>
+                            <select name="internet_Service">
+                                <option  value="Fiber optic">Fiber optic</option>
+                                <option value="DSL">DSL</option>
+                                <option value="No" >No</option>
+                            </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-label">Online Security : </div>
+                            <div>
+                            <select name="online_Security">
+                                <option  value="Yes">Yes</option>
+                                <option value="No" >No</option>
+                                <option value="No phone service" >No phone service</option>
+                            </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-label">Online Backup : </div>
+                            <div>
+                            <select name="online_Backup">
+                                <option  value="Yes">Yes</option>
+                                <option value="No" >No</option>
+                                <option value="No phone service" >No phone service</option>
+                            </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-label">Device Protection : </div>
+                            <div>
+                            <select name="device_Protection">
+                                <option  value="Yes">Yes</option>
+                                <option value="No" >No</option>
+                                <option value="No phone service" >No phone service</option>
+                            </select>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-label">Tech Support : </div>
+                            <div>
+                            <select name="tech_Support">
+                                <option  value="Yes">Yes</option>
+                                <option value="No" >No</option>
+                                <option value="No phone service" >No phone service</option>
+                            </select>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-label">Streaming TV : </div>
+                            <div>
+                            <select name="streaming_TV">
+                                <option  value="Yes">Yes</option>
+                                <option value="No" >No</option>
+                                <option value="No phone service" >No phone service</option>
+                            </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-label">Streaming Movies : </div>
+                            <div>
+                            <select name="streaming_Movies">
+                                <option  value="Yes">Yes</option>
+                                <option value="No" >No</option>
+                                <option value="No phone service" >No phone service</option>
+                            </select>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    
+                    <div class="pm-extra">
+                        <h3>Billing & Contract</h3>
+                        <div class="form-row">
+                            <div class="form-label">Contract : </div>
+                            <div>
+                            <select name="contract">
+                                <option  value="Month-to-month">Month-to-month</option>
+                                <option value="Two year" >Two year</option>
+                                <option value="One year" >One year</option>
+                            </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-label">Paperless Billing : </div>
+                            <div>
+                                <div>
+                                    <input type="radio" id="y-pb" name="paperless_Billing" value="Yes" class="paperless_Billing" required>
+                                    <label for="y-pb">Yes</label>
+                                </div>
+                                <div>
+                                    <input type="radio" id="n-pb" name="paperless_Billing" value="No" class="paperless_Billing" required>
+                                    <label for="n-pb">No</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-label">Payment Method : </div>
+                            <div>
+                            <select name="payment_Method">
+                                <option  value="Electronic check">Electronic check</option>
+                                <option value="Mailed check" >Mailed check</option>
+                                <option value="Bank transfer (automatic)" >Bank transfer (automatic)</option>
+                                <option value="Credit card (automatic)" >Credit card (automatic)</option>
+                            </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-label">Tenure Months : </div>
+                            <div>
+                            <input type="number" id="tenure_Months" name="tenure_Months">
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-label">Monthly Charges : </div>
+                            <div>
+                            <input type="number" id="monthly_Charges" name="monthly_Charges">
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-label">Customer Lifetime Value : </div>
+                            <div>
+                            <input type="number" id="CLTV"  name="CLTV">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="button">
+                    <button type="button" id="submit" onclick="predict()">Analyze Customer</button>
+                    <button type="reset" onclick="resetForm()">Reset Form</button>
+                </div>
+
+            </form>
+        </section>
+        
+        <section id="res-sec"> 
+            <div class="card res-card">
+                <div class="card-header">Churn Label</div>
+                <div class="card-body card-content" id="churn_label"></div>
+                <div class="card-footer churn-footer"></div>
+            </div>
+            <div class="card res-card">
+                <div class="card-header">Churn Probability</div>
+                <div class="card-body card-content" id="churn_prob"></div>
+                <div class="card-footer churn-footer"></div>
+            </div>
+            <div class="card res-card">
+                <div class="card-header">Offer Label</div>
+                <div class="card-body card-content" id="offer_label"></div>
+                <div class="card-footer uplift-footer"></div>
+            </div>
+            <div class="card res-card">
+                <div class="card-header ">Uplift score</div>
+                <div class="card-body card-content" id="uplift_score"></div>
+                <div class="card-footer uplift-footer"></div>
+            </div>
+            <div class="card res-card">
+                <div class="card-header">
+                    Top Factors
+                </div>
+
+                <div class="card-body" id="top_features">
+                </div>
+            </div>
+        </section>
+
+        <section id="reviews" class="review-section">
+    
+            <h2>Feedback</h2>
+    
+            <p>
+                We'd love to hear your thoughts about the project.
+            </p>
+    
+            <form class="review-form">
+    
+                <input
+                    type="text"
+                    placeholder="Your Name"
+                    id="review-name"
+                >
+    
+                <textarea
+                    placeholder="Write your feedback..."
+                    id="review-text"
+                ></textarea>
+    
+                <button type="button" onclick="addReview()">
+                    Submit Review
+                </button>
+    
+            </form>
+            
+            <div id="review-list"></div>
+    
+        </section>
+
+    </main>
+
+
+    <footer>
+        <ul>
+            <li>&copy;All Rights Reserved | 2026</li>
+            <li data-author="Yash Tripthi">Designed & Developed by Yash Tripathi</li>
+        </ul>
+    </footer>
+
+    <script src="./static/script.js"></script>
+    </body>
+</html>

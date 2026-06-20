@@ -1,0 +1,10 @@
+myvenv/
+venv/
+
+__pycache__/
+*.pyc
+
+.env
+reviews.db
+
+.ipynb_checkpoints/
