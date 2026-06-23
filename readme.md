@@ -139,6 +139,11 @@ Open:
 http://localhost:5001
 ```
 
+Live Project Link:
+
+```link
+https://huggingface.co/spaces/Ykode/telecom-churn-uplift-project
+```
 ---
 
 ## Future Improvements
